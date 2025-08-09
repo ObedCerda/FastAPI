@@ -6,4 +6,8 @@ app = FastAPI() #Aqui llamo a una clase de FastAPI
 @app.get("/") #esto es un decorador que toma root como la ruta root del servidor
 async def root(): # Cuando se accede a un server se ncecita una funcion asincrona
     # Esta funcion se ejecuta cuando se accede a la ruta raiz
-    return {"message" : "Hello, World!"}    
+    return {"message" : "¡Hello, World!"}    
+
+@app.get("/url")
+async def url():
+    return { "url": "https://github.com/obedcerda" }
