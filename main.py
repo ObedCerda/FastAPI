@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from datetime import datetime
+from pydantic import BaseModel
 
 app = FastAPI() #Aqui llamo a una clase de FastAPI
 
@@ -24,5 +26,9 @@ external_data= {
     "friends": [1, "2", b"3"],
 }
 
-user = User(**external_data) # Pydantic valida los datos y crea un objeto User
-print(user) # Imprime el objeto User creado
+user_testing = User(**external_data) # Pydantic valida los datos y crea un objeto User
+@app.get("/user_main")
+async def user():
+    return user_testing
+
+
